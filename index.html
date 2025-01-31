@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Upload</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input[type="file"] {
+            margin-bottom: 15px;
+            display: block; /* Make the file input display as a block */
+            margin-left: auto; /* Center it horizontally */
+            margin-right: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #uploadStatus {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload PDF</h1>
+        <input type="file" id="pdfFile" accept=".pdf" />
+        <button id="uploadButton">Upload</button>
+        <p id="uploadStatus"></p>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById('pdfFile');
+      const uploadButton = document.getElementById('uploadButton');
+      const uploadStatus = document.getElementById('uploadStatus');
+
+      uploadButton.addEventListener('click', function() {
+        const file = fileInput.files[0];
+
+        if (!file) {
+          uploadStatus.textContent = 'Please select a PDF file.';
+          return;
+        }
+
+        if (file.type !== 'application/pdf') {
+          uploadStatus.textContent = 'Invalid file type. Please upload a PDF.';
+          return;
+        }
+        uploadStatus.textContent = 'Uploading...';
+
+
+        // Here you would normally send the file to a server.
+        // For this example, let's simulate an upload.
+
+        setTimeout(() => {
+            uploadStatus.textContent = 'Upload complete!';
+            // Clear the file input in case user wants to upload another file
+            fileInput.value = null;
+        }, 1500); // Simulate a 1.5 second upload.
+        
+      });
+    </script>
+</body>
+</html>
