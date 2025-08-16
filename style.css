@@ -65,7 +65,35 @@ section {
     font-weight: 300;
 }
 
-.link-.link-buttons {
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+}
+
+.education-item {
+    margin-bottom: 1rem;
+}
+
+.education-item h3 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.education-item p {
+    margin: 0.2rem 0 0 0;
+    font-weight: 300;
+}
+
+.link-buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -86,4 +114,27 @@ section {
 .link-buttons a:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.show {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
 }
